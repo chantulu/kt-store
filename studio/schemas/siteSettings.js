@@ -115,5 +115,63 @@ export default {
       type: "string",
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: "menu",
+      title: "Menu",
+      type: "array",
+      validation: (Rule) => [
+        Rule.required()
+          .min(2)
+          .max(5)
+          .error("Required field with at least 1 and at most 2 entries."),
+        Rule.unique(),
+      ],
+      of: [
+        {
+          name: "menuItem",
+          title: "Menu item",
+          type: "object",
+          fields: [
+            {
+              name: "menuText",
+              title: "Menu text",
+              type: "string",
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: "menuLink",
+              title: "Menu link",
+              type: "string",
+              validation: (Rule) =>
+                Rule.required()
+                  .regex(/^(https?:|\/[a-zA-Z0-9])/)
+                  .error(
+                    "Menu link must be internal or external eg. http(s)://page.com or /internalpage/123"
+                  ),
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "facebook",
+      title: "Facebook Link",
+      type: "string",
+    },
+    {
+      name: "twitter",
+      title: "Twitter Link",
+      type: "string",
+    },
+    {
+      name: "tiktok",
+      title: "TikTok Link",
+      type: "string",
+    },
+    {
+      name: "instagram",
+      title: "Instagram Link",
+      type: "string",
+    },
   ],
 };

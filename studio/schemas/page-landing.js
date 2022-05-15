@@ -1,3 +1,7 @@
+import location from "./location";
+import productFeature from "./productFeature";
+import tileMenu from "./tileMenu";
+
 //page-landing.js
 export default {
   name: "page-landing",
@@ -24,6 +28,26 @@ export default {
       title: "Preview Image",
       type: "image",
       description: "Image preview for social media sharing",
+    },
+    {
+      name: "landingHeroElement",
+      title: "Hero element",
+      type: "heroElement",
+    },
+    {
+      name: "body",
+      title: "Page Body",
+      type: "array",
+      of: [
+        {
+          name: "landingHours",
+          title: "Landing Page Hours",
+          type: "hours",
+        },
+        tileMenu,
+        location,
+        productFeature,
+      ],
     },
   ],
 };
