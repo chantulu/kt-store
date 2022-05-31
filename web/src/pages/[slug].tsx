@@ -2,11 +2,16 @@ import { DynamicSanityParser } from 'components/DynamicSanityParser'
 import HeroElement from 'components/Hero/HeroElement'
 import { ReactElement } from 'react'
 import { LandingPageQuery } from '../../LandingPage'
+import { SiteSettings } from '../../SiteSettings'
 import client from '../client'
 
-const Page = (props: LandingPageQuery): ReactElement => {
-  console.log(props)
-  const { landingPage } = props
+const Page = ({
+  landingPage,
+  siteSettings
+}: {
+  landingPage: LandingPageQuery['landingPage']
+  siteSettings: SiteSettings
+}): ReactElement => {
   return (
     <div>
       <HeroElement
@@ -16,7 +21,10 @@ const Page = (props: LandingPageQuery): ReactElement => {
         image=""
         marketingImage=""
       ></HeroElement>
-      <DynamicSanityParser components={landingPage.body} />
+      <DynamicSanityParser
+        components={landingPage.body}
+        siteSettings={siteSettings}
+      />
     </div>
   )
 }
@@ -35,6 +43,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   // It's important to default the slug so that it doesn't return "undefined"
   const { slug = '' } = context.params
+  const siteSettings = await client.fetch(`*[_type == "siteSettings"][0]`)
   const landingPage = await client.fetch(
     `
       *[_type == "page-landing" && slug.current == $slug][0]
@@ -42,7 +51,6 @@ export async function getStaticProps(context) {
     { slug }
   )
 
-  const siteSettings = await client.fetch(`*[_type == "siteSettings"]`)
   return {
     props: {
       siteSettings,
