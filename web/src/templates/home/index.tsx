@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import Base from 'templates/Base'
-import Hero from '../../components/Hero'
+import Hero from '../../components/Hero/HeroElement'
 import * as S from './style'
 
 export default function Home({ children }: { children: ReactNode }) {
