@@ -2,7 +2,7 @@ import React from 'react'
 import { Wrapper } from './styles'
 
 //TODO: Handle images
-interface TileMenuItem {
+export interface TileMenuItem {
   tag: string
   title: string
   image: any
