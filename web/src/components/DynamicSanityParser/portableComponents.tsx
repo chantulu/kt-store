@@ -2,11 +2,9 @@ import { Location } from 'components/Location'
 import { StoreHours } from 'components/StoreHours'
 import { TileMenu } from 'components/TileMenu'
 import { TileMenuItem } from 'components/TileMenu/TileMenu'
+import { SettingsContext } from 'pages/[slug]'
 import React from 'react'
 import { LandingPageQuery } from '../../../LandingPage'
-import { SiteSettings } from '../../../SiteSettings'
-
-export const SettingsContext = React.createContext<SiteSettings | null>(null)
 
 function isValidKey(
   value: string | number | symbol,

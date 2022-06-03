@@ -11,6 +11,10 @@ export interface SiteSettings {
   image: Image
   menu: Menu[]
   name: string
+  facebook: string
+  twitter: string
+  tiktok: string
+  instagram: string
 }
 
 export interface Hours {

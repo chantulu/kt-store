@@ -1,9 +1,12 @@
 import { DynamicSanityParser } from 'components/DynamicSanityParser'
 import HeroElement from 'components/Hero/HeroElement'
-import { ReactElement } from 'react'
+import { Layout } from 'components/Layout'
+import { createContext, ReactElement } from 'react'
 import { LandingPageQuery } from '../../LandingPage'
 import { SiteSettings } from '../../SiteSettings'
 import client from '../client'
+
+export const SettingsContext = createContext<SiteSettings | null>(null)
 
 const Page = ({
   landingPage,
@@ -13,19 +16,18 @@ const Page = ({
   siteSettings: SiteSettings
 }): ReactElement => {
   return (
-    <div>
-      <HeroElement
-        hasMarketingBlock={landingPage.landingHeroElement.hasMarketingBlock}
-        text={landingPage.landingHeroElement.heroText}
-        marketingText={landingPage.landingHeroElement.heroMarketingText}
-        image=""
-        marketingImage=""
-      ></HeroElement>
-      <DynamicSanityParser
-        components={landingPage.body}
-        siteSettings={siteSettings}
-      />
-    </div>
+    <SettingsContext.Provider value={siteSettings}>
+      <Layout>
+        <HeroElement
+          hasMarketingBlock={landingPage.landingHeroElement.hasMarketingBlock}
+          text={landingPage.landingHeroElement.heroText}
+          marketingText={landingPage.landingHeroElement.heroMarketingText}
+          image=""
+          marketingImage=""
+        ></HeroElement>
+        <DynamicSanityParser components={landingPage.body} />
+      </Layout>
+    </SettingsContext.Provider>
   )
 }
 
@@ -50,7 +52,7 @@ export async function getStaticProps(context) {
     `,
     { slug }
   )
-
+  console.log(siteSettings)
   return {
     props: {
       siteSettings,

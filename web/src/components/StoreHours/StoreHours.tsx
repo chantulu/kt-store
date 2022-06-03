@@ -1,3 +1,4 @@
+import parseHours from 'lib/parseHours'
 import React from 'react'
 import { Wrapper } from './styles'
 
@@ -14,16 +15,6 @@ type Props = {
     saturday: OpenHours
     sunday: OpenHours
   }
-}
-
-//Converts 24hr format 00:00 to 12:00 AM
-function parseHours(hours: string): string {
-  const date = new Date(`January 01, ${hours}:00`)
-  return date.toLocaleString('en-US', {
-    hour: 'numeric',
-    hour12: true,
-    minute: 'numeric'
-  })
 }
 
 //TODO: Pick appropiate headers (h1,h2s etc...)
