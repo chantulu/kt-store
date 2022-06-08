@@ -17,17 +17,21 @@ type Props = {
 export default function Location({ address, title, placeName }: Props) {
   const zoom = 16
   return (
-    <S.Wrapper>
-      <h2>{title}</h2>
-      <p>
-        {address.line1}
-        <br />
-        {address.line2}
-      </p>
+    <S.Wrapper className="container">
+      <div className="row">
+        <div className="col-6">
+          <h2>{title}</h2>
+          <p>
+            {address.line1}
+            <br />
+            {address.line2}
+          </p>
+        </div>
+        <div className="col-6">GET DIRECTIONS</div>
+      </div>
       <iframe
-        width="600"
         height="450"
-        style={{ border: 0 }}
+        style={{ border: 0, width: '100%' }}
         loading="lazy"
         allowFullScreen
         referrerPolicy="no-referrer-when-downgrade"

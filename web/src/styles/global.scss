@@ -1,0 +1,64 @@
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import 'bootstrap/scss/functions';
+
+// 2. Include any default variable overrides here
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
+@import 'bootstrap/scss/utilities';
+// Disable unused bootstrap features
+$utilities: map-merge(
+  $utilities,
+  (
+    'width': null,
+    'align': null,
+    'float': null,
+    'opacity': null,
+    'shadow': null,
+    'font-family': null,
+    'font-size': null,
+    'font-weight': null,
+    'font-style': null,
+    'gradient': null,
+    'background-color': null,
+    'text-opacity': null,
+    'text-decoration': null,
+    'text-transform': null,
+    // 'text-align': null,
+    'text-wrap': null,
+    'overflow': null,
+    'top': null,
+    'bottom': null,
+    'start': null,
+    'end': null,
+    'padding-top': null,
+    'padding-bottom': null,
+    'padding-end': null,
+    'padding-start': null,
+    'line-height': null,
+    'rounded': null,
+    'rounded-top': null,
+    'rounded-bottom': null,
+    'rounded-start': null,
+    'translate-middle': null,
+    'align-self': null,
+    'align-content': null,
+    'height': null,
+    'max-height': null,
+    'viewport-height': null,
+    'min-viewport-height': null,
+    'color': null,
+    'flex-shrink': null,
+    'flex-wrap': null,
+    'flex-direction': null,
+    'margin-end': null,
+    'margin-start': null
+  )
+);
+@import 'bootstrap/scss/utilities/api';
+
+// 4. Include any optional Bootstrap components as you like
+@import 'bootstrap/scss/grid';
+@import 'bootstrap/scss/containers';

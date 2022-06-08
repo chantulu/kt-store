@@ -9,9 +9,13 @@ type Props = {
 export default function Layout({ children }: Props) {
   return (
     <div>
-      <div>
-        <div>Logo?</div>
-        <LayoutMenu />
+      <div className="container-fluid">
+        <div className="row justify-content-between">
+          <div className="col-lg-2">Logo?</div>
+          <div className="col d-flex justify-content-end">
+            <LayoutMenu />
+          </div>
+        </div>
       </div>
       {children}
       <LayoutFooter />

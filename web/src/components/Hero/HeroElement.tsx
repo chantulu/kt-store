@@ -19,17 +19,19 @@ export default function HeroElement({
   marketingImage
 }: Props) {
   return (
-    <Wrapper>
-      <div>
-        <h1>{text}</h1>
-        <img src="https://www.w3schools.com/html/pic_trulli.jpg" />
-      </div>
-      {hasMarketingBlock && (
-        <div>
-          <h2>{marketingText}</h2>
+    <Wrapper className="container">
+      <div className="row">
+        <div className={`${hasMarketingBlock ? 'col-lg-6' : 'col-lg-12'}`}>
+          <h1>{text}</h1>
           <img src="https://www.w3schools.com/html/pic_trulli.jpg" />
         </div>
-      )}
+        {hasMarketingBlock && (
+          <div className="col-lg-6">
+            <img src="https://www.w3schools.com/html/pic_trulli.jpg" />
+            <h2>{marketingText}</h2>
+          </div>
+        )}
+      </div>
     </Wrapper>
   )
 }

@@ -20,54 +20,56 @@ type Props = {
 //TODO: Pick appropiate headers (h1,h2s etc...)
 export default function intex({ title, subtitle, hours }: Props) {
   return (
-    <Wrapper>
-      <div>
-        <div>{title}</div>
-        <div>{subtitle}</div>
-      </div>
-      <div>
-        <div>
-          <div>
-            {parseHours(hours.weekdays.openfrom)}
-            &nbsp;-&nbsp;
-            {parseHours(hours.weekdays.opento)}
-          </div>
-          <div>Monday to Friday</div>
+    <Wrapper className="container">
+      <div className="row">
+        <div className="col-lg-6">
+          <h2>{title}</h2>
+          <div>{subtitle}</div>
         </div>
-        {/* if hours for both saturday and sunday are the same then display 'weekends' */}
-        {hours.saturday.openfrom === hours.sunday.openfrom &&
-          hours.saturday.opento === hours.sunday.opento && (
+        <div className="col-lg-6">
+          <div>
             <div>
-              <div>
-                {parseHours(hours.saturday.openfrom)}
-                &nbsp;-&nbsp;
-                {parseHours(hours.sunday.opento)}
-              </div>
-              <div>Weekends</div>
+              {parseHours(hours.weekdays.openfrom)}
+              &nbsp;-&nbsp;
+              {parseHours(hours.weekdays.opento)}
             </div>
+            <div>Monday to Friday</div>
+          </div>
+          {/* if hours for both saturday and sunday are the same then display 'weekends' */}
+          {hours.saturday.openfrom === hours.sunday.openfrom &&
+            hours.saturday.opento === hours.sunday.opento && (
+              <div>
+                <div>
+                  {parseHours(hours.saturday.openfrom)}
+                  &nbsp;-&nbsp;
+                  {parseHours(hours.sunday.opento)}
+                </div>
+                <div>Weekends</div>
+              </div>
+            )}
+          {/* if hours for both saturday and sunday are not the same then display 'saturday' and sunday */}
+          {(hours.saturday.openfrom !== hours.sunday.openfrom ||
+            hours.saturday.opento !== hours.sunday.opento) && (
+            <>
+              <div>
+                <div>
+                  {parseHours(hours.saturday.openfrom)}
+                  &nbsp;-&nbsp;
+                  {parseHours(hours.saturday.opento)}
+                </div>
+                <div>Saturday</div>
+              </div>
+              <div>
+                <div>
+                  {parseHours(hours.sunday.openfrom)}
+                  &nbsp;-&nbsp;
+                  {parseHours(hours.sunday.opento)}
+                </div>
+                <div>Sunday</div>
+              </div>
+            </>
           )}
-        {/* if hours for both saturday and sunday are not the same then display 'saturday' and sunday */}
-        {(hours.saturday.openfrom !== hours.sunday.openfrom ||
-          hours.saturday.opento !== hours.sunday.opento) && (
-          <>
-            <div>
-              <div>
-                {parseHours(hours.saturday.openfrom)}
-                &nbsp;-&nbsp;
-                {parseHours(hours.saturday.opento)}
-              </div>
-              <div>Saturday</div>
-            </div>
-            <div>
-              <div>
-                {parseHours(hours.sunday.openfrom)}
-                &nbsp;-&nbsp;
-                {parseHours(hours.sunday.opento)}
-              </div>
-              <div>Sunday</div>
-            </div>
-          </>
-        )}
+        </div>
       </div>
     </Wrapper>
   )

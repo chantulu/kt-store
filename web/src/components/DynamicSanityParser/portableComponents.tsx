@@ -18,9 +18,10 @@ type BodyItem = LandingPageQuery['landingPage']['body'][number]
 const portableComponents = {
   types: {
     landingHours: ({
-      hoursTitle,
-      hoursSubtitle
-    }: LandingPageQuery['landingPage']['body'][number]) => (
+      value: { hoursTitle, hoursSubtitle }
+    }: {
+      value: LandingPageQuery['landingPage']['body'][number]
+    }) => (
       <SettingsContext.Consumer>
         {(siteSettings) => (
           <StoreHours
