@@ -10,12 +10,12 @@ export default function LayoutFooter() {
   return (
     <SettingsContext.Consumer>
       {(siteSettings: { [key: string]: any } | null) => (
-        <div className="container-fluid">
+        <div className="container container-layout py-4">
           <div className="row">
-            <div className="col-lg-4">
-              <LayoutMenu />
+            <div className="col-lg-4 d-flex justify-content-start">
+              <LayoutMenu className="d-flex flex-column" />
             </div>
-            <div className="col-lg-4">
+            <div className="col-lg-4 d-flex justify-content-center">
               <div>
                 {siteSettings &&
                   socialMedias
@@ -24,27 +24,29 @@ export default function LayoutFooter() {
                         sm in (siteSettings || {}) && siteSettings[sm] !== ''
                     )
                     .map((s) => (
-                      <a href={siteSettings[s]} key={s}>
+                      <a href={siteSettings[s]} key={s} className="px-lg-3 px-2">
                         <SVGrenderer icon={s} />
                       </a>
                     ))}
               </div>
             </div>
-            <div className="col-lg-4">
-              <FooterHours hours={siteSettings?.hours} />
+            <div className="col-lg-4 d-flex justify-content-end">
               <div>
+                <FooterHours hours={siteSettings?.hours} />
                 <div>
-                  {siteSettings?.addr_1}
-                  <br />
-                  {siteSettings?.addr_2}
+                  <div>
+                    {siteSettings?.addr_1}
+                    <br />
+                    {siteSettings?.addr_2}
+                  </div>
                 </div>
+                <div />
               </div>
-              <div />
             </div>
+            <p className="text-center">
+              Copyright 2022 &copy; All rights reserved
+            </p>
           </div>
-          <p className="text-center">
-            Copyright 2022 &copy; All rights reserved
-          </p>
         </div>
       )}
     </SettingsContext.Consumer>

@@ -52,7 +52,7 @@ $utilities: map-merge(
     'color': null,
     'flex-shrink': null,
     'flex-wrap': null,
-    'flex-direction': null,
+    // 'flex-direction': null,
     'margin-end': null,
     'margin-start': null
   )
@@ -62,3 +62,43 @@ $utilities: map-merge(
 // 4. Include any optional Bootstrap components as you like
 @import 'bootstrap/scss/grid';
 @import 'bootstrap/scss/containers';
+
+
+// Colors
+:root{
+  --black: black;
+  --accent: #7A9C4B;
+  --secondary1: #FFFAF0;
+  --secondary2: #F7F8F0;
+}
+.color-black{
+  color: var(--black)
+}
+#layout{
+  background-image: linear-gradient(to bottom, var(--secondary1), var(--secondary2));
+}
+#main-menu{
+  background-color: var(--primary);
+}
+
+
+// Containers
+@media (min-width: 1600px){
+  .container-layout{
+    max-width: 1550px;
+  }
+}
+.page-body > * {
+  $spacing-between-sections: 100px;
+  margin-top: $spacing-between-sections;
+  margin-bottom: $spacing-between-sections;
+}
+
+
+// Text styles
+a{
+  text-decoration: none;
+}
+.fw-bold{
+  font-weight: bold;
+}

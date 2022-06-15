@@ -8,7 +8,7 @@ type Props = {
 
 export default function FooterHours({ hours }: Props) {
   return (
-    <div>
+    <div className='fw-bold'>
       <div>
         Mon-Fri: {parseHours(hours.weekdaysopen)}-
         {parseHours(hours.weekdaysclose)}

@@ -29,6 +29,8 @@ export default function HeroElement({
           <div className="col-lg-6">
             <img src="https://www.w3schools.com/html/pic_trulli.jpg" />
             <h2>{marketingText}</h2>
+            <p>todo:  subtitle</p>
+            <p>BUTTON</p>
           </div>
         )}
       </div>

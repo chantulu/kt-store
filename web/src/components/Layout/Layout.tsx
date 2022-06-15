@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import { LayoutFooter } from './LayoutFooter'
 import { LayoutMenu } from './LayoutMenu'
+import HeaderWrapper from './LayoutMenu/LayoutMenuHeaderWrapper'
 
 type Props = {
   children: ReactNode
@@ -8,16 +9,9 @@ type Props = {
 
 export default function Layout({ children }: Props) {
   return (
-    <div>
-      <div className="container-fluid">
-        <div className="row justify-content-between">
-          <div className="col-lg-2">Logo?</div>
-          <div className="col d-flex justify-content-end">
-            <LayoutMenu />
-          </div>
-        </div>
-      </div>
-      {children}
+    <div id="layout">
+      <HeaderWrapper />
+      <div className="page-body">{children}</div>
       <LayoutFooter />
     </div>
   )

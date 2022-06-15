@@ -52,7 +52,6 @@ export async function getStaticProps(context) {
     `,
     { slug }
   )
-  console.log(siteSettings)
   return {
     props: {
       siteSettings,
