@@ -21,7 +21,7 @@ export default function TileMenu({ tiles }: Props) {
         {tiles.map((tile, i, arr) => (
           <div
             key={`${tile.tag}${tile.title}`}
-            className={`col-2 col-lg-${Math.floor(12 / arr.length)}`}
+            className={`col-6 col-lg-${Math.floor(12 / arr.length)}`}
           >
             <p>{tile.tag}</p>
             <p>{tile.title}</p>

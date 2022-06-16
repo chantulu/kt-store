@@ -63,28 +63,35 @@ $utilities: map-merge(
 @import 'bootstrap/scss/grid';
 @import 'bootstrap/scss/containers';
 
-
 // Colors
-:root{
+:root {
   --black: black;
-  --accent: #7A9C4B;
-  --secondary1: #FFFAF0;
-  --secondary2: #F7F8F0;
+  --accent: #7a9c4b;
+  --secondary1: #fffaf0;
+  --secondary2: #f7f8f0;
 }
-.color-black{
-  color: var(--black)
+.color-black {
+  color: var(--black);
 }
-#layout{
-  background-image: linear-gradient(to bottom, var(--secondary1), var(--secondary2));
+#layout {
+  background-image: linear-gradient(
+    to bottom,
+    var(--secondary1),
+    var(--secondary2)
+  );
 }
-#main-menu{
+#main-menu {
   background-color: var(--primary);
 }
-
+.c-header {
+  .c-header-color {
+    color: var(--accent);
+  }
+}
 
 // Containers
-@media (min-width: 1600px){
-  .container-layout{
+@media (min-width: 1600px) {
+  .container-layout {
     max-width: 1550px;
   }
 }
@@ -93,12 +100,28 @@ $utilities: map-merge(
   margin-top: $spacing-between-sections;
   margin-bottom: $spacing-between-sections;
 }
-
+.hours {
+  &-time__wrapper {
+    max-width: max-content;
+    & > * {
+      text-align: center;
+    }
+  }
+}
 
 // Text styles
-a{
+a {
   text-decoration: none;
+  color: var(--black);
 }
-.fw-bold{
+.fw-bold {
+  font-weight: bold;
+}
+.btn-underlined {
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+.h1 {
+  font-size: 2em;
   font-weight: bold;
 }

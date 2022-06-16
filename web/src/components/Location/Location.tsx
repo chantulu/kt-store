@@ -1,3 +1,5 @@
+import ButtonUnderlined from 'components/Lib/Buttons/ButtonUnderlined'
+import ColoredHeader from 'components/Lib/ColoredHeader/ColoredHeader'
 import React from 'react'
 import * as S from './style'
 
@@ -20,14 +22,18 @@ export default function Location({ address, title, placeName }: Props) {
     <S.Wrapper className="container">
       <div className="row">
         <div className="col-6">
-          <h2>{title}</h2>
+          <h2>
+            <ColoredHeader text={title} />
+          </h2>
           <p>
             {address.line1}
             <br />
             {address.line2}
           </p>
         </div>
-        <div className="col-6">GET DIRECTIONS</div>
+        <div className="col-6 d-flex justify-content-end">
+          <ButtonUnderlined url="/url" text="get directions" />
+        </div>
       </div>
       <iframe
         height="450"
