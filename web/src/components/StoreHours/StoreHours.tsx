@@ -22,14 +22,14 @@ type Props = {
 export default function intex({ title, subtitle, hours }: Props) {
   return (
     <Wrapper className="container hours">
-      <div className="row">
+      <div className="row justify-content-between">
         <div className="col-lg-6">
           <h2 className="h1">
             <ColoredHeader text={title} />
           </h2>
           <div>{subtitle}</div>
         </div>
-        <div className="col-lg-6 py-5">
+        <div className="col-lg-4 col-xxl-3 py-5">
           <div className="hours-time__wrapper">
             <div className="hours-time h1">
               {parseHours(hours.weekdays.openfrom)}

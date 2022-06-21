@@ -1,4 +1,5 @@
 import ButtonUnderlined from 'components/Lib/Buttons/ButtonUnderlined'
+import ImageSanity from 'components/Lib/ImageSanity/ImageSanity'
 import React from 'react'
 import { Wrapper } from './styles'
 
@@ -20,16 +21,30 @@ export default function HeroElement({
   marketingImage
 }: Props) {
   return (
-    <Wrapper className="container">
-      <div className="row">
-        <div className={`${hasMarketingBlock ? 'col-lg-6' : 'col-lg-12'}`}>
-          <h1>{text}</h1>
-          <img src="https://www.w3schools.com/html/pic_trulli.jpg" />
+    <Wrapper className="container" id="hero-element">
+      <div className="row justify-content-between gx-5">
+        <div
+          className={`${hasMarketingBlock ? 'col-lg-6' : 'col-lg-12'} px-lg-5`}
+        >
+          <h1 className="center-self mb-5">{text}</h1>
+          <ImageSanity
+            src={image}
+            width={600}
+            height={575}
+            fit="crop"
+            quality={85}
+          />
         </div>
         {hasMarketingBlock && (
-          <div className="col-lg-6">
-            <img src="https://www.w3schools.com/html/pic_trulli.jpg" />
-            <h2>{marketingText}</h2>
+          <div className="col-lg-5 px-lg-5">
+            <ImageSanity
+              src={marketingImage}
+              width={600}
+              height={660}
+              fit="crop"
+              quality={85}
+            />
+            <h2 className="mt-5">{marketingText}</h2>
             <p>todo: subtitle</p>
             <ButtonUnderlined text="button" url="/url" />
           </div>

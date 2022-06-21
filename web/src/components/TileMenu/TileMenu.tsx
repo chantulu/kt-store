@@ -27,11 +27,9 @@ export default function TileMenu({ tiles }: Props) {
           <div
             className={`col-6 col-lg-${Math.floor(12 / arr.length)} px-lg-5`}
             ref={parallax[i].ref}
+            key={`${tile.tag}${tile.title}${i}`}
           >
-            <div
-              key={`${tile.tag}${tile.title}${i}`}
-              className={`tile-menu-tile bg-white p-4`}
-            >
+            <div className={`tile-menu-tile bg-white p-4`}>
               <i className="tag">{tile.tag}</i>
               <p className="title h3">{tile.title}</p>
               <img

@@ -15,6 +15,7 @@ const Page = ({
   landingPage: LandingPageQuery['landingPage']
   siteSettings: SiteSettings
 }): ReactElement => {
+  console.log(landingPage)
   return (
     <SettingsContext.Provider value={siteSettings}>
       <Layout>
@@ -22,8 +23,8 @@ const Page = ({
           hasMarketingBlock={landingPage.landingHeroElement.hasMarketingBlock}
           text={landingPage.landingHeroElement.heroText}
           marketingText={landingPage.landingHeroElement.heroMarketingText}
-          image=""
-          marketingImage=""
+          image={landingPage.landingHeroElement.heroImage}
+          marketingImage={landingPage.landingHeroElement.heroMarketingImage}
         ></HeroElement>
         <DynamicSanityParser components={landingPage.body} />
       </Layout>

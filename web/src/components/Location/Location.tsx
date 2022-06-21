@@ -22,7 +22,7 @@ export default function Location({ address, title, placeName }: Props) {
     <S.Wrapper className="container">
       <div className="row">
         <div className="col-6">
-          <h2>
+          <h2 className="h1">
             <ColoredHeader text={title} />
           </h2>
           <p>

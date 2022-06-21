@@ -96,7 +96,7 @@ $utilities: map-merge(
 // Containers
 @media (min-width: 1600px) {
   .container-layout {
-    max-width: 1550px;
+    max-width: 1525px;
   }
 }
 .page-body > * {
@@ -132,6 +132,11 @@ $utilities: map-merge(
     }
   }
 }
+.center-self {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
 
 // Text styles
 a {
@@ -147,13 +152,24 @@ a {
 }
 
 //header sizes
+#hero-element {
+  h1 {
+    font-size: 2.75em;
+    text-align: center;
+    width: 75%;
+  }
+  img {
+    width: 100%;
+  }
+}
 .h1,
 .h2,
 .h3 {
   font-weight: bold;
 }
-.h1 {
-  font-size: 2em;
+.h1,
+h1 {
+  font-size: 2.1em;
 }
 .h2 {
   font-size: 1.5em;
