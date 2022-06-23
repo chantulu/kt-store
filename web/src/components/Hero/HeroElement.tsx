@@ -9,6 +9,9 @@ type Props = {
   hasMarketingBlock: boolean
   marketingText: string
   marketingImage: any
+  heroMarketingLinkURL: string
+  heroMarketingLinkText: string
+  heroMarketingSubtitle: string
 }
 
 //TODO: Add the subtitle and button for the marketingblock
@@ -18,7 +21,10 @@ export default function HeroElement({
   image,
   hasMarketingBlock,
   marketingText,
-  marketingImage
+  marketingImage,
+  heroMarketingLinkURL,
+  heroMarketingLinkText,
+  heroMarketingSubtitle
 }: Props) {
   return (
     <Wrapper className="container" id="hero-element">
@@ -45,8 +51,11 @@ export default function HeroElement({
               quality={85}
             />
             <h2 className="mt-5">{marketingText}</h2>
-            <p>todo: subtitle</p>
-            <ButtonUnderlined text="button" url="/url" />
+            <p className="my-3 my-lg-4">{heroMarketingSubtitle}</p>
+            <ButtonUnderlined
+              text={heroMarketingLinkText}
+              url={heroMarketingLinkURL}
+            />
           </div>
         )}
       </div>

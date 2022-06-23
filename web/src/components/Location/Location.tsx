@@ -32,7 +32,13 @@ export default function Location({ address, title, placeName }: Props) {
           </p>
         </div>
         <div className="col-6 d-flex justify-content-end">
-          <ButtonUnderlined url="/url" text="get directions" />
+          <ButtonUnderlined
+            url={`https://maps.google.com/?q=${encodeURIComponent(
+              address.line1
+            )}%20${encodeURIComponent(address.line2)}`}
+            text="get directions"
+            target="_blank"
+          />
         </div>
       </div>
       <iframe

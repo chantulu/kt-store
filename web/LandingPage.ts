@@ -116,6 +116,9 @@ export interface LandingHeroElement {
   heroMarketingImage: HeroMarketingImage
   heroMarketingText: string
   heroText: string
+  heroMarketingSubtitle: string
+  heroMarketingLinkText: string
+  heroMarketingLinkURL: string
 }
 
 export interface HeroImage {

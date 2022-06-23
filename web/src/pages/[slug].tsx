@@ -25,6 +25,15 @@ const Page = ({
           marketingText={landingPage.landingHeroElement.heroMarketingText}
           image={landingPage.landingHeroElement.heroImage}
           marketingImage={landingPage.landingHeroElement.heroMarketingImage}
+          heroMarketingLinkURL={
+            landingPage.landingHeroElement.heroMarketingLinkURL
+          }
+          heroMarketingLinkText={
+            landingPage.landingHeroElement.heroMarketingLinkText
+          }
+          heroMarketingSubtitle={
+            landingPage.landingHeroElement.heroMarketingSubtitle
+          }
         ></HeroElement>
         <DynamicSanityParser components={landingPage.body} />
       </Layout>

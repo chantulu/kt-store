@@ -31,7 +31,6 @@ export default {
           .error(
             "Menu link must be internal or external eg. http(s)://page.com or /internalpage/123"
           ),
-      hidden: ({ parent }) => !parent?.hasMarketingBlock,
     },
   ],
 };

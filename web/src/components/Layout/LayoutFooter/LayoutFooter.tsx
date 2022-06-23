@@ -24,7 +24,11 @@ export default function LayoutFooter() {
                         sm in (siteSettings || {}) && siteSettings[sm] !== ''
                     )
                     .map((s) => (
-                      <a href={siteSettings[s]} key={s} className="px-lg-3 px-2">
+                      <a
+                        href={siteSettings[s]}
+                        key={s}
+                        className="px-lg-3 px-2"
+                      >
                         <SVGrenderer icon={s} />
                       </a>
                     ))}
@@ -44,7 +48,7 @@ export default function LayoutFooter() {
               </div>
             </div>
             <p className="text-center">
-              Copyright 2022 &copy; All rights reserved
+              Copyright {new Date().getFullYear()} &copy; All rights reserved
             </p>
           </div>
         </div>
