@@ -21,5 +21,17 @@ export default {
       type: "image",
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: "url",
+      title: "Link URL",
+      type: "string",
+      validation: (Rule) =>
+        Rule.required()
+          .regex(/^(https?:|\/[a-zA-Z0-9])/)
+          .error(
+            "Menu link must be internal or external eg. http(s)://page.com or /internalpage/123"
+          ),
+      hidden: ({ parent }) => !parent?.hasMarketingBlock,
+    },
   ],
 };

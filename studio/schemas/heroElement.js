@@ -38,5 +38,31 @@ export default {
       validation: (Rule) => Rule.required(),
       hidden: ({ parent }) => !parent?.hasMarketingBlock,
     },
+    {
+      name: "heroMarketingSubtitle",
+      title: "Hero marketing subtitle",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+      hidden: ({ parent }) => !parent?.hasMarketingBlock,
+    },
+    {
+      name: "heroMarketingLinkText",
+      title: "Hero marketing link text",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+      hidden: ({ parent }) => !parent?.hasMarketingBlock,
+    },
+    {
+      name: "heroMarketingLinkURL",
+      title: "Hero marketing linkURL",
+      type: "string",
+      validation: (Rule) =>
+        Rule.required()
+          .regex(/^(https?:|\/[a-zA-Z0-9])/)
+          .error(
+            "Menu link must be internal or external eg. http(s)://page.com or /internalpage/123"
+          ),
+      hidden: ({ parent }) => !parent?.hasMarketingBlock,
+    },
   ],
 };
