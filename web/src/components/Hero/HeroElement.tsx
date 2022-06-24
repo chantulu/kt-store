@@ -42,7 +42,7 @@ export default function HeroElement({
           />
         </div>
         {hasMarketingBlock && (
-          <div className="col-lg-5 px-lg-5">
+          <div className="col-lg-5 px-lg-5 hero-marketing">
             <ImageSanity
               src={marketingImage}
               width={600}

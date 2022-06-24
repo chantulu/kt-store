@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { CSSProperties } from 'react'
 import { SanityImageSource } from '@sanity/image-url/lib/types/types'
 import Img from 'next/image'
 import GetSanityImageUrl from '../SanityImageURL/SanityImageURL'
@@ -9,6 +9,8 @@ type Props = {
   height?: number
   quality?: number
   fit?: 'clip' | 'crop' | 'fill' | 'fillmax' | 'max' | 'scale' | 'min'
+  className?: string
+  style?: CSSProperties
 }
 
 const urlBuilder = ({ src, width, height, quality, fit = 'fill' }: Props) => {
@@ -20,7 +22,7 @@ const urlBuilder = ({ src, width, height, quality, fit = 'fill' }: Props) => {
     i = i.height(height)
   }
   if (typeof quality === 'number' && quality > 0 && quality <= 100) {
-    i = i.quality(quality)
+    i = i.quality(quality < 85 ? Math.round(quality * 1.1) : quality)
   }
   if (typeof fit === 'string') {
     i = i.fit(fit)
@@ -41,6 +43,8 @@ export default function ImageSanity(props: Props) {
       width={props.width}
       height={props.height}
       sizes="(max-width: 800px) 100vw, 800px"
+      className={props.className}
+      style={props.style}
     />
   )
 }

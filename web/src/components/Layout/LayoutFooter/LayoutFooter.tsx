@@ -12,8 +12,8 @@ export default function LayoutFooter() {
       {(siteSettings: { [key: string]: any } | null) => (
         <div className="container container-layout py-4">
           <div className="row">
-            <div className="col-lg-4 d-flex justify-content-start">
-              <LayoutMenu className="d-flex flex-column" />
+            <div className="col-lg-4 d-flex justify-content-lg-start justify-content-center my-5 my-lg-0">
+              <LayoutMenu className="d-flex footer-menu" />
             </div>
             <div className="col-lg-4 d-flex justify-content-center">
               <div>
@@ -34,7 +34,7 @@ export default function LayoutFooter() {
                     ))}
               </div>
             </div>
-            <div className="col-lg-4 d-flex justify-content-end">
+            <div className="col-lg-4 d-flex justify-content-lg-end justify-content-center my-5 my-lg-0">
               <div>
                 <FooterHours hours={siteSettings?.hours} />
                 <div>

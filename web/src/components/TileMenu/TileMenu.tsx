@@ -1,12 +1,15 @@
 import React from 'react'
 import { Wrapper } from './styles'
 import { useParallax } from 'react-scroll-parallax'
+import ImageSanity from 'components/Lib/ImageSanity/ImageSanity'
+import useIsMobile from 'components/Lib/useIsMobile/useIsMobile'
 
 //TODO: Handle images
 export interface TileMenuItem {
   tag: string
   title: string
-  image: any
+  image: string
+  url: string
 }
 
 type Props = {
@@ -14,30 +17,30 @@ type Props = {
 }
 
 //TODO: Pick appropiate headers (h1,h2s etc...)
-//TODO: add links to tiles (studio and web)
 //TODO: pick right order in mobile
 export default function TileMenu({ tiles }: Props) {
+  const isMobile = useIsMobile()
   const parallax = tiles.map((t, i) =>
-    useParallax({ speed: i % 2 === 0 ? 15 : 0 })
+    useParallax({ speed: i % 2 === 0 ? 15 : isMobile ? 15 : 0 })
   )
   return (
     <Wrapper className="container tile-menu">
-      <div className="row gx-5">
+      <div className="row gx-5 justify-content-center">
         {tiles.map((tile, i, arr) => (
-          <div
-            className={`col-6 col-lg-${Math.floor(12 / arr.length)} px-lg-5`}
+          <a
+            className={`col-10 col-sm-6 col-lg-${Math.floor(
+              12 / arr.length
+            )} px-lg-5`}
             ref={parallax[i].ref}
             key={`${tile.tag}${tile.title}${i}`}
+            href={tile.url}
           >
             <div className={`tile-menu-tile bg-white p-4`}>
               <i className="tag">{tile.tag}</i>
               <p className="title h3">{tile.title}</p>
-              <img
-                src="https://images.unsplash.com/photo-1567653418876-5bb0e566e1c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80"
-                alt="candy"
-              />
+              <ImageSanity src={tile.image} quality={90} height={350} />
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </Wrapper>
