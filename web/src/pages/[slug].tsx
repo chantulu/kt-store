@@ -1,6 +1,8 @@
 import { DynamicSanityParser } from 'components/DynamicSanityParser'
 import HeroElement from 'components/Hero/HeroElement'
 import { Layout } from 'components/Layout'
+import GetSanityImageUrl from 'components/Lib/SanityImageURL/SanityImageURL'
+import SeoMetaNext from 'components/Lib/SeoMetaNext'
 import { createContext, ReactElement } from 'react'
 import { LandingPageQuery } from '../../LandingPage'
 import { SiteSettings } from '../../SiteSettings'
@@ -18,6 +20,17 @@ const Page = ({
   console.log(landingPage)
   return (
     <SettingsContext.Provider value={siteSettings}>
+      <SeoMetaNext
+        description={landingPage?.landingHeroElement.heroText}
+        baseUrl="https://ktsmarket.com"
+        image={
+          landingPage?.image
+            ? GetSanityImageUrl(landingPage?.image.asset).url()
+            : ''
+        }
+        siteSettings={siteSettings}
+        title={landingPage?.title}
+      />
       <Layout>
         <HeroElement
           hasMarketingBlock={landingPage.landingHeroElement.hasMarketingBlock}

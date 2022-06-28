@@ -31,7 +31,7 @@ const urlBuilder = ({ src, width, height, quality, fit = 'fill' }: Props) => {
 }
 
 export default function ImageSanity(props: Props) {
-  console.log(urlBuilder({ ...props }))
+  // console.log(urlBuilder({ ...props }))
   return (
     <Img
       src={urlBuilder({ ...props })}
