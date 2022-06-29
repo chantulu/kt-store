@@ -14,27 +14,33 @@ type Props = {
 }
 
 const urlBuilder = ({ src, width, height, quality, fit = 'fill' }: Props) => {
-  let i = GetSanityImageUrl(src)
-  if (typeof width === 'number') {
-    i = i.width(width)
+  try {
+    let i = GetSanityImageUrl(src)
+    if (typeof width === 'number') {
+      i = i.width(width)
+    }
+    if (typeof height === 'number') {
+      i = i.height(height)
+    }
+    if (typeof quality === 'number' && quality > 0 && quality <= 100) {
+      i = i.quality(quality < 85 ? Math.round(quality * 1.1) : quality)
+    }
+    if (typeof fit === 'string') {
+      i = i.fit(fit)
+    }
+    return i.url()
+  } catch {
+    return ''
   }
-  if (typeof height === 'number') {
-    i = i.height(height)
-  }
-  if (typeof quality === 'number' && quality > 0 && quality <= 100) {
-    i = i.quality(quality < 85 ? Math.round(quality * 1.1) : quality)
-  }
-  if (typeof fit === 'string') {
-    i = i.fit(fit)
-  }
-  return i.url()
 }
 
 export default function ImageSanity(props: Props) {
   // console.log(urlBuilder({ ...props }))
+  const url = urlBuilder({ ...props })
+  if (!url) return null
   return (
     <Img
-      src={urlBuilder({ ...props })}
+      src={url}
       layout={
         props.width && typeof props.width === 'number' ? 'responsive' : 'fill'
       }
@@ -45,6 +51,7 @@ export default function ImageSanity(props: Props) {
       sizes="(max-width: 800px) 100vw, 800px"
       className={props.className}
       style={props.style}
+      objectFit="cover"
     />
   )
 }

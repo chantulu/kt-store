@@ -33,22 +33,22 @@ const Page = ({
       />
       <Layout>
         <HeroElement
-          hasMarketingBlock={landingPage.landingHeroElement.hasMarketingBlock}
-          text={landingPage.landingHeroElement.heroText}
-          marketingText={landingPage.landingHeroElement.heroMarketingText}
-          image={landingPage.landingHeroElement.heroImage}
-          marketingImage={landingPage.landingHeroElement.heroMarketingImage}
+          hasMarketingBlock={landingPage?.landingHeroElement.hasMarketingBlock}
+          text={landingPage?.landingHeroElement.heroText}
+          marketingText={landingPage?.landingHeroElement.heroMarketingText}
+          image={landingPage?.landingHeroElement.heroImage}
+          marketingImage={landingPage?.landingHeroElement.heroMarketingImage}
           heroMarketingLinkURL={
-            landingPage.landingHeroElement.heroMarketingLinkURL
+            landingPage?.landingHeroElement.heroMarketingLinkURL
           }
           heroMarketingLinkText={
-            landingPage.landingHeroElement.heroMarketingLinkText
+            landingPage?.landingHeroElement.heroMarketingLinkText
           }
           heroMarketingSubtitle={
-            landingPage.landingHeroElement.heroMarketingSubtitle
+            landingPage?.landingHeroElement.heroMarketingSubtitle
           }
         ></HeroElement>
-        <DynamicSanityParser components={landingPage.body} />
+        <DynamicSanityParser components={landingPage?.body} />
       </Layout>
     </SettingsContext.Provider>
   )
@@ -58,6 +58,8 @@ export async function getStaticPaths() {
   const paths = await client.fetch(
     `*[_type == "page-landing" && defined(slug.current)][].slug.current`
   )
+
+  console.log(paths)
 
   return {
     paths: paths.map((slug) => ({ params: { slug } })),

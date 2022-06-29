@@ -34,8 +34,8 @@ function SeoMetaNext({
   siteSettings: SiteSettings
   baseUrl: string
 }) {
-  const metaDescription = description || siteSettings.description
-  const defaultTitle = siteSettings.name
+  const metaDescription = description || siteSettings?.description
+  const defaultTitle = siteSettings?.name || ''
   const metaArr = [
     {
       name: `description`,
@@ -75,13 +75,14 @@ function SeoMetaNext({
       <title>
         {(title || defaultTitle).charAt(0).toUpperCase() +
           (title || defaultTitle).slice(1)}{' '}
-        | {siteSettings.name}
+        | {siteSettings?.name}
       </title>
       {metaArr?.map((m) => (
         <meta
           property={m.property}
           content={m.content}
           {...(m.name ? { name: m.name } : {})}
+          key={m.property + m.content}
         />
       ))}
       {path && (

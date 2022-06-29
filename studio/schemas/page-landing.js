@@ -1,4 +1,5 @@
 import location from "./location";
+import MenuSection from "./MenuSection";
 import productFeature from "./productFeature";
 import tileMenu from "./tileMenu";
 
@@ -47,6 +48,7 @@ export default {
         tileMenu,
         location,
         productFeature,
+        MenuSection,
       ],
     },
   ],

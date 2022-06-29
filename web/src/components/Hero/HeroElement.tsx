@@ -27,19 +27,38 @@ export default function HeroElement({
   heroMarketingSubtitle
 }: Props) {
   return (
-    <Wrapper className="container" id="hero-element">
-      <div className="row justify-content-between gx-5">
+    <Wrapper
+      className={`container ${
+        !hasMarketingBlock ? 'hero-element-marketing' : ''
+      }`}
+      id="hero-element"
+    >
+      <div className={`row justify-content-between gx-5`}>
         <div
           className={`${hasMarketingBlock ? 'col-lg-6' : 'col-lg-12'} px-lg-5`}
         >
-          <h1 className="center-self mb-5">{text}</h1>
-          <ImageSanity
-            src={image}
-            width={600}
-            height={575}
-            fit="crop"
-            quality={85}
-          />
+          <div className="row justify-content-around">
+            <h1
+              className={`mb-5 ${
+                !hasMarketingBlock ? 'col-lg-3' : 'col-lg-12 center-self'
+              }`}
+            >
+              {text}
+            </h1>
+            <div
+              className={`mb-5 ${
+                !hasMarketingBlock ? 'col-lg-5' : 'col-lg-12 center-self'
+              }`}
+            >
+              <ImageSanity
+                src={image}
+                width={600}
+                height={575}
+                fit="crop"
+                quality={85}
+              />
+            </div>
+          </div>
         </div>
         {hasMarketingBlock && (
           <div className="col-lg-5 px-lg-5 hero-marketing">

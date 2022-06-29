@@ -159,13 +159,28 @@ a {
 
 //header sizes
 #hero-element {
+  &.hero-marketing {
+    h1 {
+      width: 75%;
+    }
+  }
   h1 {
     font-size: 2.75em;
     text-align: center;
-    width: 75%;
   }
   img {
     width: 100%;
+  }
+  & > .row > div > span {
+    max-height: 600px;
+    img {
+      // width: unset !important;
+      // height: unset !important;
+      // min-width: unset !important;
+      // max-width: unset !important;
+      // min-height: unset !important;
+      // max-height: unset !important;
+    }
   }
 }
 @media (max-width: 991px) {
