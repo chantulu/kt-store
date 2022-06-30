@@ -1,4 +1,6 @@
 import { Location } from 'components/Location'
+import { ProductPriceMenu } from 'components/ProductPriceMenu'
+import { ProductPriceMenuType } from 'components/ProductPriceMenu/productpricemenutypes'
 import { StoreHours } from 'components/StoreHours'
 import { TileMenu } from 'components/TileMenu'
 import { TileMenuItem } from 'components/TileMenu/TileMenu'
@@ -82,6 +84,9 @@ const portableComponents = {
           )}
         </SettingsContext.Consumer>
       )
+    },
+    productpricemenu: ({ value }: { value: ProductPriceMenuType }) => {
+      return <ProductPriceMenu value={value} />
     }
   }
 }
