@@ -143,6 +143,13 @@ $utilities: map-merge(
     flex-direction: column;
   }
 }
+.menu-section {
+  margin-bottom: 2.75em;
+  &-pricecol {
+    width: 8.5ch;
+    display: inline-block;
+  }
+}
 
 // Text styles
 a {

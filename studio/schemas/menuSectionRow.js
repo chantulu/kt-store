@@ -12,6 +12,11 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "hasSizes",
+      title: "Add Serving Size Price?",
+      type: "boolean",
+    },
+    {
       name: "menuItemList",
       title: "Menu item List",
       type: "array",

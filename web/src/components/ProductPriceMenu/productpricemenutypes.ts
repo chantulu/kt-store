@@ -20,6 +20,7 @@ export interface MenuSectionType {
   _type: string
   menuItemList: MenuItemList[]
   title: string
+  hasSizes?: boolean
 }
 
 export interface MenuItemList {
@@ -28,7 +29,6 @@ export interface MenuItemList {
   description?: string
   name: string
   price?: number
-  hasSizes?: boolean
   price_md?: number
   price_sm?: number
 }
