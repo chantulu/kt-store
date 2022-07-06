@@ -21,6 +21,7 @@ export interface MenuSectionType {
   menuItemList: MenuItemList[]
   title: string
   hasSizes?: boolean
+  hidePrice?: boolean
 }
 
 export interface MenuItemList {

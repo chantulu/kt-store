@@ -17,6 +17,12 @@ export default {
       type: "boolean",
     },
     {
+      name: "hidePrice",
+      title: "Hide Price? (products with no price)",
+      type: "boolean",
+      hidden: ({ parent }) => parent.hasSizes,
+    },
+    {
       name: "menuItemList",
       title: "Menu item List",
       type: "array",

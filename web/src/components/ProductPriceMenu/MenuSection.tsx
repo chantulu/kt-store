@@ -4,7 +4,8 @@ import { MenuSectionType } from './productpricemenutypes'
 export default function MenuSection({
   title,
   menuItemList,
-  hasSizes
+  hasSizes,
+  hidePrice
 }: MenuSectionType) {
   return (
     <div className="menu-section">
@@ -18,22 +19,32 @@ export default function MenuSection({
           </div>
         </div>
       )}
-      {!hasSizes && (
+      {!hasSizes && hidePrice !== true && (
         <div className="row">
           <div className="col-lg-6"></div>
-          <div className="col-lg-6 mb-4 h3">Price</div>
+          <div className="col-lg-6 mb-4 h3 menu-section-pricecol">Price</div>
         </div>
       )}
       {menuItemList.map((il) => (
-        <div className="row mb-2" key={il._key}>
-          <div className="col-lg-6">{il.name}</div>
+        <div className="row mb-3" key={il._key}>
+          <div className="col-lg-6">
+            <div className={`fw-bold ${hidePrice && 'mt-5'}`}>{il.name}</div>
+            {il.description && <div>{il.description}</div>}
+          </div>
           <div className="col-lg-6">
             {!hasSizes ? (
-              il.price
+              <div className="fw-bold">
+                {hidePrice !== true && '$'}
+                {il.price}
+              </div>
             ) : (
               <>
-                <span className="menu-section-pricecol">{il.price_sm}</span>
-                <span className="menu-section-pricecol">{il.price_md}</span>
+                <span className="menu-section-pricecol fw-bold">
+                  $ {il.price_sm}
+                </span>
+                <span className="menu-section-pricecol  fw-bold">
+                  $ {il.price_md}
+                </span>
               </>
             )}
           </div>

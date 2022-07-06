@@ -146,7 +146,10 @@ $utilities: map-merge(
 .menu-section {
   margin-bottom: 2.75em;
   &-pricecol {
-    width: 8.5ch;
+    &.h3 {
+      font-size: 1.5em;
+    }
+    width: 8.5rem;
     display: inline-block;
   }
 }
