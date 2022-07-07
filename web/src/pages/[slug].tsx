@@ -17,7 +17,6 @@ const Page = ({
   landingPage: LandingPageQuery['landingPage']
   siteSettings: SiteSettings
 }): ReactElement => {
-  console.log(landingPage)
   return (
     <SettingsContext.Provider value={siteSettings}>
       <SeoMetaNext
@@ -69,7 +68,12 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   // It's important to default the slug so that it doesn't return "undefined"
-  const { slug = '' } = context.params
+  let { slug = '' } = context.params
+
+  if (!context) {
+    slug = 'home'
+  }
+  console.log('a')
   const siteSettings = await client.fetch(`*[_type == "siteSettings"][0]`)
   const landingPage = await client.fetch(
     `

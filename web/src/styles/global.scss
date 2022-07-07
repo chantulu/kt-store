@@ -100,9 +100,20 @@ $utilities: map-merge(
   }
 }
 .page-body > * {
-  $spacing-between-sections: 100px;
-  margin-top: $spacing-between-sections;
-  margin-bottom: $spacing-between-sections;
+  &:is(div) {
+    $spacing-between-sections: 100px;
+    margin-top: $spacing-between-sections;
+    margin-bottom: $spacing-between-sections;
+  }
+  &:not(div) {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    max-width: 50vw;
+    display: block;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }
 .hours {
   &-time__wrapper {

@@ -45,6 +45,12 @@ export default {
           title: "Landing Page Hours",
           type: "hours",
         },
+        {
+          type: "block",
+        },
+        {
+          type: "image",
+        },
         tileMenu,
         location,
         productFeature,

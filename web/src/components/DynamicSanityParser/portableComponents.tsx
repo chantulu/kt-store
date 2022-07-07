@@ -1,3 +1,5 @@
+import { SanityImageSource } from '@sanity/image-url/lib/types/types'
+import ImageSanity from 'components/Lib/ImageSanity/ImageSanity'
 import { Location } from 'components/Location'
 import { ProductPriceMenu } from 'components/ProductPriceMenu'
 import { ProductPriceMenuType } from 'components/ProductPriceMenu/productpricemenutypes'
@@ -6,7 +8,7 @@ import { TileMenu } from 'components/TileMenu'
 import { TileMenuItem } from 'components/TileMenu/TileMenu'
 import { SettingsContext } from 'pages/[slug]'
 import React from 'react'
-import { LandingPageQuery } from '../../../LandingPage'
+import { Image2, LandingPageQuery } from '../../../LandingPage'
 
 function isValidKey(
   value: string | number | symbol,
@@ -87,6 +89,17 @@ const portableComponents = {
     },
     productpricemenu: ({ value }: { value: ProductPriceMenuType }) => {
       return <ProductPriceMenu value={value} />
+    },
+    image: ({ value }: { value: Image2 }) => {
+      return (
+        <ImageSanity
+          src={value.asset}
+          width={500}
+          height={300}
+          className="my-5"
+          quality={100}
+        />
+      )
     }
   }
 }
