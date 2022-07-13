@@ -22,7 +22,7 @@ type Props = {
 export default function intex({ title, subtitle, hours }: Props) {
   return (
     <Wrapper className="container hours">
-      <div className="row justify-content-between">
+      <div className="row justify-content-lg-between justify-content-center">
         <div className="col-lg-6">
           <h2 className="h1">
             <ColoredHeader text={title} />

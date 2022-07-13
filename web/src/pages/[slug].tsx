@@ -58,7 +58,7 @@ export async function getStaticPaths() {
     `*[_type == "page-landing" && defined(slug.current)][].slug.current`
   )
 
-  console.log(paths)
+  // console.log(paths)
 
   return {
     paths: paths.map((slug) => ({ params: { slug } })),
@@ -73,7 +73,6 @@ export async function getStaticProps(context) {
   if (!context) {
     slug = 'home'
   }
-  console.log('a')
   const siteSettings = await client.fetch(`*[_type == "siteSettings"][0]`)
   const landingPage = await client.fetch(
     `

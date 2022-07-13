@@ -8,7 +8,6 @@ type Props = {
 }
 
 export default function ProductPriceMenu({ value }: Props) {
-  console.log(value)
   return (
     <div className="container product-price-menu">
       <div className="row gx-5">

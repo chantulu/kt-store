@@ -1,3 +1,4 @@
+import featuredProductSection from "./featuredProductSection";
 import location from "./location";
 import MenuSection from "./MenuSection";
 import productFeature from "./productFeature";
@@ -55,6 +56,7 @@ export default {
         location,
         productFeature,
         MenuSection,
+        featuredProductSection,
       ],
     },
   ],

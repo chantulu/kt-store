@@ -109,7 +109,7 @@ $utilities: map-merge(
     margin-top: 2rem;
     margin-bottom: 2rem;
     text-align: center;
-    max-width: 50vw;
+    max-width: max(50vw, 550px);
     display: block;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -207,6 +207,30 @@ a {
 @media (max-width: 991px) {
   #hero-element .hero-marketing > span {
     display: none !important;
+  }
+  .hours {
+    * {
+      text-align: center;
+    }
+    &-time__wrapper {
+      max-width: 100%;
+    }
+  }
+  .market-section-img {
+    img {
+      max-height: 400px !important;
+    }
+  }
+}
+@media (min-width: 992px) {
+  .page-body > * {
+    &:not(div) {
+      img {
+        width: 800px !important;
+        max-width: 800px !important;
+        min-width: unset !important; //fix for stupid next/image
+      }
+    }
   }
 }
 .h1,

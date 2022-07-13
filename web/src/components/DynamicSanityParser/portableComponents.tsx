@@ -1,4 +1,7 @@
 import { SanityImageSource } from '@sanity/image-url/lib/types/types'
+import FeaturedProductSection, {
+  FeaturedProductSecitonValue
+} from 'components/featuredProductSection/featuredProductSection'
 import ImageSanity from 'components/Lib/ImageSanity/ImageSanity'
 import { Location } from 'components/Location'
 import { ProductPriceMenu } from 'components/ProductPriceMenu'
@@ -94,13 +97,18 @@ const portableComponents = {
       return (
         <ImageSanity
           src={value.asset}
-          width={500}
+          width={600}
           height={300}
           className="my-5"
           quality={100}
         />
       )
-    }
+    },
+    featuredProductSection: ({
+      value
+    }: {
+      value: FeaturedProductSecitonValue
+    }) => <FeaturedProductSection {...value} />
   }
 }
 
