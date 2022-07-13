@@ -11,6 +11,11 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "heroSubtitle",
+      title: "Hero subtitle",
+      type: "string",
+    },
+    {
       name: "heroImage",
       title: "Hero image",
       type: "image",
