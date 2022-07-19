@@ -20,7 +20,7 @@ jobs:
           node-version: '16.x'
 
       - name: Switch working folder
-        run: cd web      
+        run: cd kt-store/web      
       
       - name: Installing my packages
         run: yarn install
