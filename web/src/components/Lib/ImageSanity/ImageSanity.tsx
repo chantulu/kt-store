@@ -34,13 +34,18 @@ const urlBuilder = ({ src, width, height, quality, fit = 'fill' }: Props) => {
   }
 }
 
+const loader = ({ src }: any) => {
+  return src
+}
+
 export default function ImageSanity(props: Props) {
   // console.log(urlBuilder({ ...props }))
   const url = urlBuilder({ ...props })
-  if (!url) return null
+  if (!url || !props.src) return null
   return (
     <Img
-      src={url}
+      loader={urlBuilder}
+      src={(props?.src?.asset?._ref as string) || props?.src?._ref || props.src}
       layout={
         props.width && typeof props.width === 'number' ? 'responsive' : 'fill'
       }
