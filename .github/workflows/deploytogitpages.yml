@@ -19,8 +19,11 @@ jobs:
         with:
           node-version: '16.x'
 
+      - name: List working folder
+        run: dir  
+      
       - name: Switch working folder
-        run: cd kt-store/web      
+        run: cd web      
       
       - name: Installing my packages
         run: yarn install
