@@ -1,7 +1,7 @@
 import { SanityImageSource } from '@sanity/image-url/lib/types/types'
 import FeaturedProductSection, {
   FeaturedProductSecitonValue
-} from 'components/featuredProductSection/featuredProductSection'
+} from 'components/featuredProductSection/FeaturedProductSection'
 import ImageSanity from 'components/Lib/ImageSanity/ImageSanity'
 import { Location } from 'components/Location'
 import { ProductPriceMenu } from 'components/ProductPriceMenu'
