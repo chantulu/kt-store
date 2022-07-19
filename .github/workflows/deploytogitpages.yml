@@ -17,21 +17,15 @@ jobs:
       - name: Use Node.js 16.x
         uses: actions/setup-node@v1
         with:
-          node-version: '16.x'
-
-      - name: List working folder
-        run: dir  
-      
-      - name: Switch working folder
-        run: cd web      
+          node-version: '16.x'    
       
       - name: Installing my packages
+        working-directory: ./web
         run: yarn install
-        
-      - name: List working folder
-        run: dir  
+          
 
       - name: Build my App
+        working-directory: ./web
         run: yarn run build && npm run export
 
       - name: Deploy 🚀
@@ -39,4 +33,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: deploy # The branch the action should deploy to.
-          FOLDER: out # The folder the action should deploy.
+          FOLDER: ./web/out # The folder the action should deploy.
