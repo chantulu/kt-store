@@ -11,7 +11,10 @@
     "@sanity/base",
     "@sanity/default-layout",
     "@sanity/default-login",
-    "@sanity/desk-tool"
+    "@sanity/desk-tool",
+    "media-library",
+    "media",
+    "@sanity/vision"
   ],
   "env": {
     "development": {
@@ -24,6 +27,10 @@
     {
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema"
+    },
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./app/deskStructure.js"
     }
   ]
 }

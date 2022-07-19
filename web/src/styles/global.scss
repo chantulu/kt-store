@@ -1,0 +1,250 @@
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import 'bootstrap/scss/functions';
+
+// 2. Include any default variable overrides here
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
+@import 'bootstrap/scss/utilities';
+// Disable unused bootstrap features
+$utilities: map-merge(
+  $utilities,
+  (
+    'width': null,
+    'align': null,
+    'float': null,
+    'opacity': null,
+    'shadow': null,
+    'font-family': null,
+    'font-size': null,
+    'font-weight': null,
+    'font-style': null,
+    'gradient': null,
+    'background-color': null,
+    'text-opacity': null,
+    'text-decoration': null,
+    'text-transform': null,
+    // 'text-align': null,
+    'text-wrap': null,
+    'overflow': null,
+    'top': null,
+    'bottom': null,
+    'start': null,
+    'end': null,
+    'padding-top': null,
+    'padding-bottom': null,
+    'padding-end': null,
+    'padding-start': null,
+    'line-height': null,
+    'rounded': null,
+    'rounded-top': null,
+    'rounded-bottom': null,
+    'rounded-start': null,
+    'translate-middle': null,
+    'align-self': null,
+    'align-content': null,
+    'height': null,
+    'max-height': null,
+    'viewport-height': null,
+    'min-viewport-height': null,
+    'color': null,
+    'flex-shrink': null,
+    'flex-wrap': null,
+    // 'flex-direction': null,
+    'margin-end': null,
+    'margin-start': null
+  )
+);
+@import 'bootstrap/scss/utilities/api';
+
+// 4. Include any optional Bootstrap components as you like
+@import 'bootstrap/scss/grid';
+@import 'bootstrap/scss/containers';
+
+// Colors
+:root {
+  --black: black;
+  --white: white;
+  --accent: #7a9c4b;
+  --secondary1: #fffaf0;
+  --secondary2: #f7f8f0;
+}
+.color-black {
+  color: var(--black);
+}
+#layout {
+  background-image: linear-gradient(
+    to bottom,
+    var(--secondary1),
+    var(--secondary2)
+  );
+}
+#main-menu {
+  background-color: var(--primary);
+}
+.c-header {
+  .c-header-color {
+    color: var(--accent);
+  }
+}
+.bg-white {
+  background-color: var(--white);
+}
+
+// Containers
+@media (min-width: 1600px) {
+  .container-layout {
+    max-width: 1525px;
+  }
+}
+.page-body > * {
+  &:is(div) {
+    $spacing-between-sections: 100px;
+    margin-top: $spacing-between-sections;
+    margin-bottom: $spacing-between-sections;
+  }
+  &:not(div) {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    max-width: max(50vw, 550px);
+    display: block;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+.hours {
+  &-time__wrapper {
+    max-width: max-content;
+    & > * {
+      text-align: center;
+    }
+  }
+}
+.tile-menu {
+  margin-bottom: 120px;
+  margin-top: 120px;
+  &-tile {
+    height: 320px;
+    position: relative;
+    img,
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      // width: 100%;
+      // height: auto;
+      z-index: 1;
+    }
+    *:not(img, span) {
+      position: relative;
+      z-index: 2;
+    }
+  }
+}
+.center-self {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+@media (min-width: 992px) {
+  .footer-menu {
+    flex-direction: column;
+  }
+}
+.menu-section {
+  margin-bottom: 2.75em;
+  &-pricecol {
+    &.h3 {
+      font-size: 1.5em;
+    }
+    width: 8.5rem;
+    display: inline-block;
+  }
+}
+
+// Text styles
+a {
+  text-decoration: none;
+  color: var(--black);
+}
+.fw-bold {
+  font-weight: bold;
+}
+.btn-underlined {
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+
+//header sizes
+#hero-element {
+  &.hero-marketing {
+    h1 {
+      width: 75%;
+    }
+  }
+  h1 {
+    font-size: 2.75em;
+    text-align: center;
+  }
+  img {
+    width: 100%;
+  }
+  & > .row > div > span {
+    max-height: 600px;
+    img {
+      // width: unset !important;
+      // height: unset !important;
+      // min-width: unset !important;
+      // max-width: unset !important;
+      // min-height: unset !important;
+      // max-height: unset !important;
+    }
+  }
+}
+@media (max-width: 991px) {
+  #hero-element .hero-marketing > span {
+    display: none !important;
+  }
+  .hours {
+    * {
+      text-align: center;
+    }
+    &-time__wrapper {
+      max-width: 100%;
+    }
+  }
+  .market-section-img {
+    img {
+      max-height: 400px !important;
+    }
+  }
+}
+@media (min-width: 992px) {
+  .page-body > * {
+    &:not(div) {
+      img {
+        width: 800px !important;
+        max-width: 800px !important;
+        min-width: unset !important; //fix for stupid next/image
+      }
+    }
+  }
+}
+.h1,
+.h2,
+.h3 {
+  font-weight: bold;
+}
+.h1,
+h1 {
+  font-size: 2.1em;
+}
+.h2 {
+  font-size: 1.5em;
+}
+.h3 {
+  font-size: 1.17em;
+}
