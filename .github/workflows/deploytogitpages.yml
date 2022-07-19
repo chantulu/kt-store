@@ -27,6 +27,9 @@ jobs:
       
       - name: Installing my packages
         run: yarn install
+        
+      - name: List working folder
+        run: dir  
 
       - name: Build my App
         run: yarn run build && npm run export
