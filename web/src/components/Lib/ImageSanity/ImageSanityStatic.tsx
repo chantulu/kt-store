@@ -34,7 +34,6 @@ const urlBuilder = ({ src, width, height, quality, fit = 'fill' }: Props) => {
 }
 
 export default function ImageSanityStatic(props: Props) {
-  // console.log(urlBuilder({ ...props }))
   const url = urlBuilder({ ...props })
   if (!url) return null
   return (
