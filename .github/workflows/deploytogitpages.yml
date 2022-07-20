@@ -27,11 +27,15 @@ jobs:
       - name: Build my App
         working-directory: ./web
         run: yarn run build && touch ./out/.nojekyll
+        env:
+          NEXT_PUBLIC_GOOGLEAPI_KEY: ${{ secrets.NEXT_PUBLIC_GOOGLEAPI_KEY }}
+          SANITY_API_KEY: ${{ secrets.SANITY_API_KEY }}
+          
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
           token: ${{ secrets.KT_MARKET_BUILD_PAT }}
-          BRANCH: main # The branch the action should deploy to.
+          BRANCH: deploy # The branch the action should deploy to.
           FOLDER: ./web/out # The folder the action should deploy.
-          repository-name: chantulu/kt-market-build
+          #repository-name: chantulu/kt-market-build
