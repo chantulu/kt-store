@@ -10,7 +10,7 @@ export default function LayoutFooter() {
   return (
     <SettingsContext.Consumer>
       {(siteSettings: { [key: string]: any } | null) => (
-        <div className="container container-layout py-4">
+        <footer className="container container-layout py-4">
           <div className="row">
             <div className="col-lg-4 d-flex justify-content-lg-start justify-content-center my-5 my-lg-0">
               <LayoutMenu className="d-flex footer-menu" />
@@ -34,10 +34,10 @@ export default function LayoutFooter() {
                     ))}
               </div>
             </div>
-            <div className="col-lg-4 d-flex justify-content-lg-end justify-content-center my-5 my-lg-0">
+            <div className="col-lg-4 d-flex justify-content-lg-end justify-content-center my-5 my-lg-0 footer-hours">
               <div>
                 <FooterHours hours={siteSettings?.hours} />
-                <div>
+                <div className="my-3">
                   <div>
                     {siteSettings?.addr_1}
                     <br />
@@ -51,7 +51,7 @@ export default function LayoutFooter() {
               Copyright {new Date().getFullYear()} &copy; All rights reserved
             </p>
           </div>
-        </div>
+        </footer>
       )}
     </SettingsContext.Consumer>
   )

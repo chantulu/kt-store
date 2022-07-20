@@ -11,27 +11,27 @@ export default function MenuSection({
     <div className="menu-section">
       <div className="h1">{title}</div>
       {hasSizes && (
-        <div className="row">
-          <div className="col-lg-6"></div>
-          <div className="col-lg-6">
+        <div className="row gx-5">
+          <div className="col-6"></div>
+          <div className="col-6">
             <span className="menu-section-pricecol h3">Small</span>
             <span className="menu-section-pricecol mb-4 h3">Large</span>
           </div>
         </div>
       )}
       {!hasSizes && hidePrice !== true && (
-        <div className="row">
-          <div className="col-lg-6"></div>
-          <div className="col-lg-6 mb-4 h3 menu-section-pricecol">Price</div>
+        <div className="row gx-5">
+          <div className="col-6"></div>
+          <div className="col-6 mb-4 h3 menu-section-pricecol">Price</div>
         </div>
       )}
       {menuItemList.map((il) => (
-        <div className="row mb-3" key={il._key}>
-          <div className="col-lg-6">
+        <div className="row mb-3 gx-5" key={il._key}>
+          <div className="col-6">
             <div className={`fw-bold ${hidePrice && 'mt-5'}`}>{il.name}</div>
             {il.description && <div>{il.description}</div>}
           </div>
-          <div className="col-lg-6">
+          <div className="col-6">
             {!hasSizes ? (
               <div className="fw-bold">
                 {hidePrice !== true && '$'}

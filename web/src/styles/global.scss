@@ -204,6 +204,7 @@ a {
     }
   }
 }
+//mobile stuff
 @media (max-width: 991px) {
   #hero-element .hero-marketing > span {
     display: none !important;
@@ -221,7 +222,13 @@ a {
       max-height: 400px !important;
     }
   }
+  footer {
+    .footer-hours {
+      text-align: center;
+    }
+  }
 }
+//desktop stuff
 @media (min-width: 992px) {
   .page-body > * {
     &:not(div) {
